@@ -1,0 +1,15 @@
+services:
+  dev-db:
+    image: mysql:8.0
+    ports:
+      - '${DB_PORT}:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - freecodecamp
+
+networks:
+  freecodecamp:
