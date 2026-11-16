@@ -1,4 +1,4 @@
-// docker exec -it 49862a5ca06c mysql -uroot -p123 -e "GRANT ALL PRIVILEGES ON *.* TO 'appuser'@'%'; FLUSH PRIVILEGES;"
+// docker exec -it d6f6195338ee mysql -uroot -p123 -e "GRANT ALL PRIVILEGES ON *.* TO 'appuser'@'%'; FLUSH PRIVILEGES;"
 
 import { Injectable } from '@nestjs/common';
 import { PrismaMariaDb } from '@prisma/adapter-mariadb';
