@@ -87,12 +87,10 @@ export class AuthService {
       const expiryDate = new Date();
       expiryDate.setDate(expiryDate.getDate() + 3);
 
-      await this.db.refreshToken.create({
-        data: {
-          token,
-          userId,
-          expiresDate: expiryDate,
-        },
+      await this.db.refreshToken.upsert({
+        where: { userId },
+        update: { token, expiresDate: expiryDate },
+        create: { token, userId, expiresDate: expiryDate },
       });
     } catch (error) {
       throw new BadRequestException(error);
@@ -116,12 +114,7 @@ export class AuthService {
         });
       }
 
-      this.generateUserToken(token?.userId);
-
-      // Delete the used token so it can't be reused
-      await tx.refreshToken.delete({
-        where: { id: token?.id },
-      });
+      return this.generateUserToken(token?.userId);
     });
   }
 

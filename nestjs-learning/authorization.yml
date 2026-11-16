@@ -1,0 +1,18 @@
+info:
+  name: authorization
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: '{{BASEURL}}'
+  headers:
+    - name: Authorization
+      value: Beare eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJrb29mXzh5OVJucHNjcFVTaE9MdTMiLCJpYXQiOjE3OTQ4NDk4NzIsImV4cCI6MTc5NDg1MzQ3Mn0.UZSitoAlusllZ631s3avvJnFBdBMXWW7dFDcqmS0e0Y
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
